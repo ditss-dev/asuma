@@ -112,5 +112,5 @@ Project ini dilisensikan di bawah lisensi MIT. Silakan lihat file `LICENSE` untu
   
 Bot ini hanya bekerja selama WhatsApp Web tetap terhubung. Jika kamu menutup aplikasi Termux atau restart perangkat, kamu harus menjalankan ulang perintah `node .`.  
 ```markdown  
-![Build Status](https://github.com/naz.../actions/workflows/main.yml/badge.svg)  
+![Build Status](https://github.com/ditss-dev/actions/workflows/main.yml/badge.svg)  
 ```  
