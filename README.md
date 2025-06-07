@@ -88,7 +88,7 @@ Jika kamu ingin mengubah konfigurasi seperti prefix, token, atau database, silak
 Kami mengucapkan terima kasih kepada pihak-pihak yang telah memberikan kontribusi atau inspirasi dalam pembuatan bot ini:  
   
 - [ditss](https://github.com/ditss-dev)  
-- [whiskey socket](https://github.com/contributor2)  
+- [WhiskeySockets](https://github.com/WhiskeySockets)  
 - Creator Library Baileys  
 - Komunitas Open Source Indonesia  
   
