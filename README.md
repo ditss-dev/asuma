@@ -1,8 +1,6 @@
 # 🧠 Asuma Gen 2 - WhatsApp Bot
 
-![Asuma Gen 2 Logo](https://example.com/logo.png)  
-*(Ganti link logo dengan URL logo bot kamu atau hapus baris ini jika ingin menggunakan placeholder)*
-
+![Asuma Gen 2 Logo](https://n.uguu.se/HoZfesxq.jpg)  
 **Asuma Gen 2** adalah WhatsApp bot berbasis Node.js yang ringan dan mudah dikembangkan. Cocok digunakan untuk kebutuhan otomatisasi seperti auto-reply, pengelolaan grup, dan interaksi berbasis command.
 
 > ⚠️ Pastikan kamu menggunakan WhatsApp Business agar kompatibel dengan library WhatsApp yang digunakan.
