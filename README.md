@@ -90,7 +90,8 @@ Kami mengucapkan terima kasih kepada pihak-pihak yang telah memberikan kontribus
 - [ditss](https://github.com/ditss-dev)  
 - [WhiskeySockets](https://github.com/WhiskeySockets)  
 - Creator Library Baileys  
-- Komunitas Open Source Indonesia  
+- Komunitas Open Source Indonesia
+- [WhatsApp](https://github.com/whatsapp)
   
 ---  
   
