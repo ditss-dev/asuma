@@ -97,8 +97,8 @@ Kami mengucapkan terima kasih kepada pihak-pihak yang telah memberikan kontribus
 ## 💬 Support & Bantuan
 
 Jika kamu menemui error atau butuh bantuan, kamu bisa:
-- Membuka issue di [https://github.com/naz...](https://github.com/naz...)
-- Hubungi saya via email: example@email.com
+- Membuka issue di [disni](https://github.com/ditss-dev/asuma/issues)
+- Hubungi saya via email: ditss-cloud@gamil.com
 
 ---
 
