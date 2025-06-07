@@ -97,7 +97,8 @@ Kami mengucapkan terima kasih kepada pihak-pihak yang telah memberikan kontribus
 ## 💬 Support & Bantuan  
   
 Jika kamu menemui error atau butuh bantuan, kamu bisa:  
-- Membuka issue di [disni](https://github.com/ditss-dev/asuma/issues)  
+- Membuka issue di [disni](https://github.com/ditss-dev/asuma/issues)
+- My saluran [WhatsApp](https://whatsapp.com/channel/0029VaflxUXGE56szLxlPJ3c)
 - Hubungi saya via email: ditss-cloud@gamil.com  
   
 ---  
