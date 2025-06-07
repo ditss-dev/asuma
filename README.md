@@ -52,12 +52,12 @@ Pastikan semua dependensi berikut sudah terinstal:
 
 4. Clone repository:
    ```bash
-   git clone https://github.com/naz... asuma-gen2
+   git clone https://github.com/ditss-dev/asuma
    ```
 
 5. Masuk ke direktori project:
    ```bash
-   cd asuma-gen2
+   cd asuma
    ```
 
 6. Install modul JavaScript:
@@ -87,8 +87,8 @@ Jika kamu ingin mengubah konfigurasi seperti prefix, token, atau database, silak
 
 Kami mengucapkan terima kasih kepada pihak-pihak yang telah memberikan kontribusi atau inspirasi dalam pembuatan bot ini:
 
-- [Nama Contributor 1](https://github.com/contributor1)
-- [Nama Contributor 2](https://github.com/contributor2)
+- [ditss](https://github.com/ditss-dev)
+- [whiskey socket](https://github.com/contributor2)
 - Creator Library Baileys
 - Komunitas Open Source Indonesia
 
