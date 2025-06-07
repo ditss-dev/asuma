@@ -116,7 +116,7 @@ Bot ini hanya bekerja selama WhatsApp Web tetap terhubung. Jika kamu menutup apl
 
 Semoga membantu!  
 Jangan lupa ganti `naz...` dengan link repo asli kamu 😊  
-Jika kamu punya logo atau gambar, upload ke GitHub atau situs penyimpanan gambar lalu ganti link `https://example.com/logo.png` dengan URL logo kamu.
+Jika kamu punya logo atau gambar, upload ke GitHub atau situs penyimpanan gambar lalu ganti link `https://n.uguu.se/HoZfesxq.jpg` dengan URL logo kamu.
 
 Kalau mau, kamu juga bisa tambahkan demo command, screenshot, atau badge status build seperti GitHub Actions, misalnya:
 
