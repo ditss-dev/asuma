@@ -1,0 +1,3 @@
+{
+  "ignore": ["ditss-dev", "node_modules", "database", "logs"]
+}
