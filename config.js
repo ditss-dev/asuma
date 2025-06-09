@@ -131,8 +131,12 @@ global.APIKeys = {
 }
 
 // Kata-kata kasar (untuk filter badword atau auto-kick)
-global.badWords = ['tolol','goblok','asu','pantek','kampret','ngentot','jancok','kontol','memek','lonte']
-
+global.badWords = [
+  'anj', 'tolol', 'goblok', 'asu', 'pantek', 'kampret',
+  'ngentot', 'jancok', 'kontol', 'memek', 'lonte',
+  'bangsat', 'tai', 'babi', 'anjing', 'brengsek',
+  'sinting', 'bencong', 'banci', 'pecun', 'jembut'
+];
 // Batas maksimal panjang chat per user (anti spam?)
 global.chatLength = 1000
 
