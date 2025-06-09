@@ -5692,6 +5692,54 @@ ${ownerMenu(prefix)}`
 				})
 			}
 			break
+				// qc
+				cace 'qc-black':
+			case 'ditss-hitam':
+			case 'qc-hitam': {
+				if (!text) return m.reply('teksnya')
+					await m.reply(mess.wait)
+						var ppuser
+							try {
+								ppuser = await Ditss.profilePictureUrl(m.sender, 'image')
+							} catch (err) {
+								ppuser = 'https://api.ditss.cloud/media/image/mat5bg09.jpg'
+							}
+				const json = {
+					"type": "quote",
+					"format": "png",
+					"backgroundColor": "#000000",
+					"width": 812,
+					"height": 968,
+					"scale": 2,
+					"messages": [
+						{
+							"entities": [],
+							"avatar": true,
+							"from": {
+								"id": 1,
+								"name": m.pushName,
+								"photo": {
+									"url": ppuser
+								}
+							},
+							"text": text,
+							"replyMessage": {}
+						}
+					]
+				};
+				const response = axios.post('https://bot.lyo.su/quote/generate', json, {
+					headers: {'Content-Type': 'application/json'}
+				}).then(async (res) => {
+					const buffer = Buffer.from(res.data.result.image, 'base64')
+						let tempnya = "./sticker/database/sampah/" + m.sender + ".png"
+							await fs.writeFile(tempnya, buffer, async (err) => {
+								if (err) return m.reply("Error")
+									await Ditss.sendAsSticker(m.chat, tempnya, m, {packname: global.packname})
+										await fs.unlinkSync(`${tempnya}`)
+							})
+				})
+			}
+				break
 			case 'botmenu': {
 				m.reply(botMenu(prefix))
 			}
