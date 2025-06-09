@@ -1,6 +1,6 @@
 {
   "name": "asumaa",
-  "version": "10.0.7",
+  "version": "gen-2",
   "description": "Bot WhatsApp Using Lib Baileys Multi Device",
   "main": "start.js",
   "type": "commonjs",
