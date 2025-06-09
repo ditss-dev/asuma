@@ -8,6 +8,7 @@ Base by naze.*/
  *  Created by    : ditss
  *  GitHub        : https://github.com/ditss-dev
  *  WhatsApp      : https://wa.me/6281513607731
+ *  Saluran       : https://whatsapp.com/channel/0029VaimJO0E50UaXv9Z1J0L
  *  Description   : Source code project Asuma Gen 2 - WhatsApp Bot
  *  Created Date  : 2025.
  * -----------------------------------------------------------------------------
@@ -15,7 +16,6 @@ Base by naze.*/
  *  Please keep the header intact when distributing.
  * -----------------------------------------------------------------------------
  */
-
 require('./config');
 const { unixTimestampSeconds, 
        generateMessageTag, 
