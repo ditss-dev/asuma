@@ -8,14 +8,24 @@ const readline = require('readline');
 const { Boom } = require('@hapi/boom');
 const qrcode = require('qrcode-terminal');
 const NodeCache = require('node-cache');
-const { toBuffer, toDataURL } = require('qrcode');
-const { exec, spawn, execSync } = require('child_process');
+const { 
+	toBuffer, 
+	toDataURL 
+} = require('qrcode');
+const { 
+	exec, 
+	spawn, 
+	execSync 
+} = require('child_process');
 const { parsePhoneNumber } = require('awesome-phonenumber');
 //const { startIdleLoading, stopIdleLoading } = require('./system-asuma/terminal');
 const { default: WAConnection, useMultiFileAuthState, Browsers, DisconnectReason, makeInMemoryStore, makeCacheableSignalKeyStore, fetchLatestBaileysVersion, proto, getAggregateVotesInPollMessage } = require('baileys');
 
 const { dataBase } = require('./system-asuma/database');
-const { app, server, PORT } = require('./system-asuma/server');
+const { 
+	app, 
+	server, 
+	PORT } = require('./system-asuma/server');
 
 const pairingCode = process.argv.includes('--qr') ? false : process.argv.includes('--pairing-code') || global.pairing_code;
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout })
