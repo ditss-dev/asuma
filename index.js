@@ -52,7 +52,7 @@ const { isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, sleep } =
  *  Please keep the header intact when distributing.
  * -----------------------------------------------------------------------------
  */
-async function startNazeBot() {
+async function StartAsumaBoett() {
 	const { state, saveCreds } = await useMultiFileAuthState('sesi');
 	const { version, isLatest } = await fetchLatestBaileysVersion();
 	const level = pino({ level: 'silent' });
@@ -183,19 +183,19 @@ async function startNazeBot() {
 			const reason = new Boom(lastDisconnect?.error)?.output.statusCode
 			if (reason === DisconnectReason.connectionLost) {
 				console.log('Connection to Server Lost, Attempting to Reconnect...');
-				startNazeBot()
+				StartAsumaBoett()
 			} else if (reason === DisconnectReason.connectionClosed) {
 				console.log('Connection closed, Attempting to Reconnect...');
-				startNazeBot()
+				StartAsumaBoett()
 			} else if (reason === DisconnectReason.restartRequired) {
 				console.log('Restart Required...');
-				startNazeBot()
+				StartAsumaBoett()
 			} else if (reason === DisconnectReason.timedOut) {
 				console.log('Connection Timed Out, Attempting to Reconnect...');
-				startNazeBot()
+				StartAsumaBoett()
 			} else if (reason === DisconnectReason.badSession) {
 				console.log('Delete Session and Scan again...');
-				startNazeBot()
+				StartAsumaBoett()
 			} else if (reason === DisconnectReason.connectionReplaced) {
 				console.log('Close current Session first...');
 			} else if (reason === DisconnectReason.loggedOut) {
@@ -293,7 +293,7 @@ console.log(
 	return Ditss
 }
 
-startNazeBot()
+StartAsumaBoett()
 
 // Process Exit
 const cleanup = async (signal) => {
