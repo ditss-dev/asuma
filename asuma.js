@@ -112,7 +112,19 @@ const { unixTimestampSeconds,
        sendResponList,
        updateResponList,
        getDataResponList
-} = require('./system-asuma/DitssGanteng');
+       } = require('./system-asuma/DitssGanteng');
+       const { 
+       cmdAdd, 
+       cmdDel, 
+       cmdAddHit, 
+       addExpired, 
+       getPosition, 
+       getExpired, 
+       getStatus, 
+       checkStatus, 
+       getAllExpired, 
+       checkExpired 
+} = require('./system-asuma/database');
 const fs = require('fs');
 const os = require('os');
 const qs = require('qs');
@@ -166,7 +178,6 @@ const { toAudio, toPTT, toVideo } = require('./lib/converter');
 const { GroupUpdate, LoadDataBase } = require('./system-asuma/message');
 const { JadiBot, StopJadiBot, ListJadiBot } = require('./system-asuma/jadibot');
 const { imageToWebp, videoToWebp, gifToWebp, writeExif } = require('./lib/exif');
-const { cmdAdd, cmdDel, cmdAddHit, addExpired, getPosition, getExpired, getStatus, checkStatus, getAllExpired, checkExpired } = require('./system-asuma/database');
 const db_respon_list = JSON.parse(fs.readFileSync('./database/DitssGanteng.json'));
 
 //system-bots
