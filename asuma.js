@@ -5704,7 +5704,7 @@ ${ownerMenu(prefix)}`
 			}
 			break
 				// qc
-				cace 'qc-black':
+				case 'qc-black':
 			case 'ditss-hitam':
 			case 'qc-hitam': {
 				if (!text) return m.reply('teksnya')
