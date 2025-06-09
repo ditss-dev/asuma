@@ -2794,7 +2794,7 @@ break;
 				load(mess.wait)
 				let media = await quoted.download()
 				let audio = await toAudio(media, 'mp4')
-				await m.reply({ document: audio, mimetype: 'audio/mpeg', fileName: `Convert By Naze Bot.mp3`})
+				await m.reply({ document: audio, mimetype: 'audio/mpeg', fileName: `Convert By Asuma Bot.mp3`})
 			}
 			break
 			case 'tovn': case 'toptt': case 'tovoice': {
