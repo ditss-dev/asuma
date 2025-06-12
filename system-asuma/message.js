@@ -861,8 +861,44 @@ async function Serialize(Ditss, msg, store, groupCache) {
 	m.copy = () => Serialize(Ditss, proto.WebMessageInfo.fromObject(proto.WebMessageInfo.toObject(m)))
 	
 	m.react = (u) => Ditss.sendMessage(m.chat, { react: { text: u, key: m.key }})
-	
-	m.reply = async (content, options = {}) => {
+
+
+		m.reply = async (content, options = {}) => {
+	const {
+		quoted = m,
+		chat = m.chat,
+		caption = '',
+		ephemeralExpiration = m.expiration || store?.messages[m.chat]?.array?.slice(-1)[0]?.metadata?.ephemeralDuration || 0,
+		mentions = (typeof content === 'string' || typeof content.text === 'string' || typeof content.caption === 'string')
+			? [...(content.text || content.caption || content).matchAll(/@(\d{0,16})/g)].map(v => v[1] + '@s.whatsapp.net')
+			: [],
+		...validate
+	} = options;
+
+	const baseOptions = { ...options, quoted, ephemeralExpiration, ai: !m.isGroup };
+
+	if (typeof content === 'object') {
+		return Ditss.sendMessage(chat, content, baseOptions);
+	} else if (typeof content === 'string') {
+		try {
+			if (/^https?:\/\//.test(content)) {
+				const data = await axios.get(content, { responseType: 'arraybuffer' });
+				const mime = data.headers['content-type'] || (await FileType.fromBuffer(data.data)).mime;
+
+				if (/gif|image|video|audio|pdf|stream/i.test(mime)) {
+					return Ditss.sendMedia(chat, data.data, '', caption, quoted, content);
+				} else {
+					return Ditss.sendMessage(chat, { text: content, mentions, ...options, ai: !m.isGroup }, { quoted, ephemeralExpiration });
+				}
+			} else {
+				return Ditss.sendMessage(chat, { text: content, mentions, ...options, ai: !m.isGroup }, { quoted, ephemeralExpiration });
+			}
+		} catch (e) {
+			return Ditss.sendMessage(chat, { text: content, mentions, ...options, ai: !m.isGroup }, { quoted, ephemeralExpiration });
+		}
+	}
+}
+	/*m.reply = async (content, options = {}) => {
 		const { quoted = m, chat = m.chat, caption = '', ephemeralExpiration = m.expiration || store?.messages[m.chat]?.array?.slice(-1)[0]?.metadata?.ephemeralDuration || 0, mentions = (typeof content === 'string' || typeof content.text === 'string' || typeof content.caption === 'string') ? [...(content.text || content.caption || content).matchAll(/@(\d{0,16})/g)].map(v => v[1] + '@s.whatsapp.net') : [], ...validate } = options;
 		if (typeof content === 'object') {
 			return Ditss.sendMessage(chat, content, { ...options, quoted, ephemeralExpiration })
@@ -883,7 +919,7 @@ async function Serialize(Ditss, msg, store, groupCache) {
 				return Ditss.sendMessage(chat, { text: content, mentions, ...options }, { quoted, ephemeralExpiration })
 			}
 		}
-	}
+	}*/
 
 	return m
 }
