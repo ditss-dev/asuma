@@ -5876,37 +5876,68 @@ ${ownerMenu(prefix)}`
 				})
 			}
 		}
-	} catch (e) {
-		let msg;
-		console.log(e);
-		const errorKey = e?.code || e?.name || e?.message?.slice(0, 100) || 'unknown_error';
-		const now = Date.now();
-		if (!errorCache[errorKey]) errorCache[errorKey] = [];
-		errorCache[errorKey] = errorCache[errorKey].filter(ts => now - ts < 600000);
-		if (errorCache[errorKey].length >= 3) return;
-		errorCache[errorKey].push(now);
-		if (e?.status === 404) msg = 'Resource tidak ditemukan (404).'
-		else if (e?.status === 403) msg = 'Akses dibatasi (403).'
-		else if (e?.code === 'ETIMEDOUT') msg = 'Sepertinya servernya terlalu lama merespons. Coba periksa koneksi internet.'
-		else if (e?.code === 'ENOTFOUND') msg = 'Sepertinya server tidak ditemukan. Periksa koneksi internet kamu.'
-		else if (e?.code === 'ERR_OSSL_BAD_DECRYPT') msg = 'Sepertinya terjadi kesalahan saat mendekripsi data. Pastikan kunci valid.'
-		else if (e?.name === 'TypeError') msg = 'Sepertinya ada masalah dengan tipe data yang digunakan.'
-		else if (e?.name === 'ReferenceError') msg = 'Sepertinya ada variabel yang belum didefinisikan.'
-		else if (e?.name === 'SessionError') msg = 'Sepertinya ada masalah dengan sesi. Pastikan semuanya sudah terhubung dengan benar.'
-		else if (e?.name === 'AxiosError') msg = 'Sepertinya ada masalah dengan pengambilan data, coba cek koneksi.'
-		else if (e?.message?.includes('not-acceptable') || e?.data === 406) msg = 'Permintaan tidak diterima server (406 Not Acceptable). Cek apakah format atau isi permintaan sudah sesuai.'
-		else if (e?.output?.statusCode === 408 || e?.message?.includes('Timed Out')) msg = 'Sepertinya permintaan melebihi batas waktu, coba lagi nanti.'
-		else if (e?.output?.statusCode === 404 || e?.message?.includes('myAppStateKey')) msg = 'Sepertinya state key tidak ditemukan, silahkan coba lagi nanti.'
-		else if (e?.output?.statusCode === 500 || e?.message?.includes('internal-server-error')) msg = 'Sepertinya terjadi error didalam server, silahkan coba lagi nanti.'
-		else if (e?.message?.includes('Media upload failed on all hosts')) msg = 'Sepertinya gagal mengunggah media, coba cek pengaturan server.'
-		else if (e?.message?.includes('No sessions')) msg = 'Sepertinya session tidak ditemukan, mungkin bot tidak akan merespon.'
-		else if (e?.message?.includes('Cannot find ffmpeg')) msg = 'Sepertinya ffmpeg belum terpasang di sistem, silahkan install terlebih dahulu.'
-		else if (e?.message?.includes('Cannot find module')) msg = 'Sepertinya ada modul yang belum terpasang di sistem, silahkan install terlebih dahulu.'
-		if (msg) {
-			error(msg + '\n\nError: ' + (e?.name || e?.code || e?.output?.statusCode || e?.status || 'Tidak diketahui') + '\nLog Error Telah dikirim ke Owner\n\n')
-		}
-		return Ditss.sendFromOwner(owner, `halo owner ${ucapanWaktu}, seperti ada yang error Perbaiki yah.\n\nVersion : *${require('./package.json').version}*\n\n*Log error:*\n\n` + util.format(e), m, { contextInfo: { isForwarded: true }})
-	}
+	} catch (e) => {
+    let msg;
+    console.log(e);
+    const errorKey = e?.code || e?.name || e?.message?.slice(0, 100) || 'unknown_error';
+    const now = Date.now();
+    if (!errorCache[errorKey]) errorCache[errorKey] = [];
+    errorCache[errorKey] = errorCache[errorKey].filter(ts => now - ts < 600000);
+    if (errorCache[errorKey].length >= 3) return;
+    errorCache[errorKey].push(now);
+    if (e?.status === 404) {
+        msg = '❌ Resource tidak ditemukan (404).';
+    } else if (e?.status === 403) {
+        msg = '🚫 Akses dibatasi (403).';
+    } else if (e?.code === 'ETIMEDOUT') {
+        msg = '⏱️ Server terlalu lama merespons. Coba periksa koneksi internet.';
+    } else if (e?.code === 'ENOTFOUND') {
+        msg = '🌐 Server tidak ditemukan. Periksa koneksi internet kamu.';
+    } else if (e?.code === 'ERR_OSSL_BAD_DECRYPT') {
+        msg = '🔐 Gagal mendekripsi data. Pastikan kunci valid.';
+    } else if (e?.name === 'TypeError') {
+        msg = '⚠️ Terjadi kesalahan tipe data.';
+    } else if (e?.name === 'ReferenceError') {
+        msg = '⚠️ Ada variabel yang belum didefinisikan.';
+    } else if (e?.name === 'SessionError') {
+        msg = '🔁 Masalah dengan sesi. Pastikan semua sudah terhubung.';
+    } else if (e?.name === 'AxiosError') {
+        msg = '🌐 Gagal mengambil data. Cek koneksi internet.';
+    } else if (e?.message?.includes('not-acceptable') || e?.data === 406) {
+        msg = '📛 Permintaan tidak diterima server (406). Cek format atau isi permintaan.';
+    } else if (e?.output?.statusCode === 408 || e?.message?.includes('Timed Out')) {
+        msg = '⏳ Permintaan melebihi batas waktu. Coba lagi nanti.';
+    } else if (e?.output?.statusCode === 404 || e?.message?.includes('myAppStateKey')) {
+        msg = '🔑 State key tidak ditemukan. Silakan coba lagi.';
+    } else if (e?.output?.statusCode === 500 || e?.message?.includes('internal-server-error')) {
+        msg = '💥 Terjadi kesalahan pada server. Silakan coba lagi nanti.';
+    } else if (e?.message?.includes('Media upload failed on all hosts')) {
+        msg = '📤 Gagal mengunggah media. Cek pengaturan server.';
+    } else if (e?.message?.includes('No sessions')) {
+        msg = '🔌 Session tidak ditemukan. Mungkin bot tidak akan merespon.';
+    } else if (e?.message?.includes('Cannot find ffmpeg')) {
+        msg = '📼 FFMPEG belum terpasang. Silakan install terlebih dahulu.';
+    } else if (e?.message?.includes('Cannot find module')) {
+        msg = '📦 Modul belum terpasang. Jalankan `npm install` terlebih dahulu.';
+    }
+
+    // Tampilkan pesan error jika tersedia
+    if (msg) {
+        m.reply(
+            `${msg}\n\nError: ${e?.name || e?.code || e?.output?.statusCode || e?.status || 'Tidak diketahui'}\n` +
+            `Log error telah dikirim ke owner.\n`
+        );
+    }
+
+    // Kirim log error ke owner
+    return Ditss.sendFromOwner(owner,
+        `👋 Halo owner ${ucapanWaktu}, sepertinya ada error yang perlu diperbaiki.\n\n` +
+        `📦 Version: *${require('./package.json').version}*\n\n` +
+        `🪵 *Log error:*\n\n${util.format(e)}`,
+        m,
+        { contextInfo: { isForwarded: true } }
+    );
+}
 }
 
 let file = require.resolve(__filename)
